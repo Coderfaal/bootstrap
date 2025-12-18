@@ -1,1 +1,189 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* -------------------------------
+   Lofi Global Styles (Pastel)
+   ------------------------------- */
+
+/* 1) Font & Base Reset */
+@font-face {
+  font-family: "InterVar";
+  src: local("Inter"), local("InterVar");
+  font-display: swap;
+}
+
+:root {
+  /* Pastel palette */
+  --bg-1: #f7f4f2;     /* warm paper */
+  --bg-2: #f0eaf2;     /* soft lilac */
+  --bg-3: #eaf3f8;     /* misty blue */
+  --ink-1: #2f2a2a;    /* cozy dark ink */
+  --ink-2: #5a5656;    /* muted text */
+  --accent: #8a79af;   /* dusty purple */
+  --accent-2: #7fb0c9; /* washed blue */
+
+  /* Surfaces */
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --border: rgba(0, 0, 0, 0.08);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", "Segoe UI", InterVar, Arial, sans-serif;
+  color: var(--ink-1);
+  background: linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3));
+  background-attachment: fixed;
+  background-size: 200% 200%;
+  animation: lofiGradient 18s ease-in-out infinite;
+}
+
+/* 2) Gentle gradient movement */
+@keyframes lofiGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 3) Grain texture overlay (lofi vibe) */
+.lofi-grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+    radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  opacity: 0.25; /* tweak grain intensity */
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+
+/* 4) Content wrappers */
+.container, .card {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 1.6rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(4px);
+}
+
+/* 5) Headings */
+h1, h2, h3 {
+  color: var(--ink-1);
+  letter-spacing: 0.3px;
+  margin: 0 0 1rem 0;
+}
+
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.4rem; color: var(--ink-2); }
+h3 { font-size: 1.15rem; color: var(--ink-2); }
+
+/* 6) Form elements */
+label {
+  display: block;
+  font-weight: 600;
+  color: var(--ink-2);
+  margin-bottom: 0.4rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink-1);
+  font-size: 0.95rem;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.06s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: rgba(138, 121, 175, 0.5);       /* dusty purple */
+  box-shadow: 0 0 0 4px rgba(138, 121, 175, 0.15);
+  transform: translateY(-1px);
+}
+
+/* 7) Buttons (lofi, soft accent) */
+button, .btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.08s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover, .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  filter: saturate(1.05);
+}
+
+button:disabled {
+  background: #d7d3e6;
+  color: #f5f4fb;
+  cursor: not-allowed;
+}
+
+/* 8) Alerts (muted, friendly) */
+.alert {
+  margin-top: 0.6rem;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff7f7;
+  color: #5c3333;
+  font-size: 0.92rem;
+}
+
+/* 9) Subtle dividers */
+.hr {
+  height: 1px;
+  background: var(--border);
+  margin: 1rem 0;
+  border-radius: 1px;
+}
+
+/* 10) Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html, body { animation: none; background-size: cover; }
+}
+
+/* 11) Dark lofi (optional)
+   Add class 'lofi-dark' to body for a darker cozy vibe */
+.lofi-dark {
+  --bg-1: #242124;
+  --bg-2: #2c2631;
+  --bg-3: #1f2a34;
+  --ink-1: #eae6e6;
+  --ink-2: #cfcaca;
+  --accent: #a594c7;
+  --accent-2: #7faac6;
+  --card-bg: rgba(36, 33, 36, 0.7);
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+/* 12) Utility spacing (optional) */
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }

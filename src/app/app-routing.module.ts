@@ -1,7 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path : 'home' ,component : HomeComponent,},
+  {path : 'aboutus' ,component : AboutusComponent,},
+  {path : 'register' ,component : RegisterComponent,},
+  {path : '**' ,redirectTo: '/home'},
+];
+
+// here we are configuring the redirecting routes with all the components
+
+
+
+
+
+
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
