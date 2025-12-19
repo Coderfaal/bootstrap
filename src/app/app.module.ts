@@ -10,6 +10,8 @@ import { RegisterComponent } from './register/register.component';
 import { ChildComponent } from './child/child.component';
 import { FormsModule } from '@angular/forms';
 
+import { ChildtoparentComponent } from './childtoparent/childtoparent.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     AboutusComponent,
     RegisterComponent,
-    ChildComponent
+    ChildComponent,
+    
+    ChildtoparentComponent
   ],
   imports: [
     BrowserModule,

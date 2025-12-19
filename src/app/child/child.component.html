@@ -1,9 +1,17 @@
 
 
-<div style="border: 2px solid green; margin: 10px*10px;">
-                <h2>Child Component</h2>
-                <label> Recived by parent#{{searchInput}}</label> 
+<div style="border: 2px solid rgb(108, 192, 30); margin: 10px 10px;"> 
+    <h1>Child component</h1> 
+    <label>Received from parent: {{ searchInput }}</label>
+        <h3>Matching Products:</h3> 
+        <ul> <li *ngFor="let product of filteredProduct"> 
+            {{ product.brand }} 
+           {{ product.description}} 
+        {{ product.qty }} 
+            {{ product.price }} 
+             </li> </ul>
+                </div>
+                
+                   
 
-              
-
-        </div>
+       

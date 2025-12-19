@@ -1,18 +1,14 @@
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Product } from '../Product';
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+@Injectable({
+  providedIn: 'root'
 })
-export class AppComponent {
+export class DataService {
 
-  title = 'bootstrap';
-
-  router: any;
-
-   constructor(){
+  products:Product[]=[];
+ temp:any;
+  constructor(){
   this.products[0] = new Product('s1021', 'Tata', 'Dish TV', 10, 2500);
     this.products[1] = new Product('K3023', 'Wipro', 'Blubs', 210, 300);
     this.products[2] = new Product('mp3421', 'TVS', 'Belts', 210, 5500);
@@ -29,38 +25,21 @@ export class AppComponent {
 
   }
 
- products:Product[]=[];
-  renderHome(home: string) {
-this.router.navigate([home]);
+
+  getAllProducts(): Product[]{
+  return this.products;
 }
 
-
-renderAboutUs(aboutus: string) {
-this.router.navigate([aboutus]);
-}
-
-
-renderRegister(register: string) {
-this.router.navigate([register]);
-}
+getProductsByID(pid :any): Product{
   
+  for(var i =0 ;i<this.products.length;i++){
+    if(this.products[i].productId==pid)
+      this.temp=this.products[i];
+  }
 
-
-
-searchSubject : string= '';
-
-
-
-
-
-
-
-parentItems :string[] = []; 
-
-
-onChildEvent(newItem : string){
-  this.parentItems.push(newItem);
-}
-
+  return this.temp;
+ 
+   
+ }
 
 }
