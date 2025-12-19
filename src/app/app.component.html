@@ -1,6 +1,6 @@
 <app-bootstrap></app-bootstrap>
 
-
+<!-- <div> -->
 <h3><a [routerLink]="['/home']">Home</a></h3>
 <h3><a [routerLink]="['/aboutus']">About us</a></h3>
 <h3><a [routerLink]="['/register']">Register</a></h3>
@@ -13,3 +13,26 @@
 <router-outlet></router-outlet>
 
 <!-- creating this here just for reference , home aboutus and register is all components -->
+
+<!-- </div> -->
+
+
+<div>
+ <div style="border: 2px solid blue; margin: 10px*10px;">
+    <h1>Parent Component</h1>
+
+    <label for = "parent">Enter search text </label>
+
+    <input type="text"  [(ngModel)]="searchSubject"   />
+
+
+      <app-child [searchInput]="searchSubject"></app-child>
+        <app-child [searchInput]="searchSubject"></app-child>
+          <app-child [searchInput]="searchSubject"></app-child>
+            <app-child [searchInput]="searchSubject"></app-child>
+
+      
+    </div>
+        
+
+</div>

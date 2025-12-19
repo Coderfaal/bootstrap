@@ -27,4 +27,12 @@ renderRegister(register: string) {
 this.router.navigate([register]);
 }
   
+
+
+
+searchSubject : string= '';
+
+
+
+
 }
